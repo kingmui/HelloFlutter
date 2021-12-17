@@ -26,3 +26,20 @@ samples, guidance on mobile development, and a full API reference.
 - [Package site](https://pub.dev/flutter/packages)
 - [flutter CLI reference](https://docs.flutter.dev/reference/flutter-cli)
 - [Dart 中文社区](https://www.dart-china.org/)
+
+## Start
+
+### 连接iOS模拟器
+
+```bash
+open -a Simulator
+```
+
+### 连接iOS真机设备
+
+```bash
+brew update
+brew install --HEAD libimobiledevice
+brew install ideviceinstaller ios-deploy cocoapods
+pod setup
+```

@@ -1,4 +1,4 @@
-### WidgetsBindingObserver 监测页面生命周期
+# WidgetsBindingObserver 监测页面生命周期
 
 ```dart
 import 'package:flutter/material.dart';
