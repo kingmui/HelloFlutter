@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Flutter实战 第三章</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@4.2.1/dist/reset.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@4.2.1/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@4.2.1/dist/theme/white.css"
+    />
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/reveal.js@4.2.1/plugin/highlight/monokai.css"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-color="#212121">
+          <h1>Flutter实战 第三章</h1>
+          <p>分享：木木</p>
+          <p>2021.12.23</p>
+        </section>
+
+        <!-- 基础组件 -->
+        <section
+          data-markdown="./md/chapter3.md"
+          data-separator="^\n\n\n"
+          data-separator-vertical="^\n\n"
+          data-separator-notes="^Note:"
+        ></section>
+
+        <!-- 布局类组件 -->
+        <!-- <section
+          data-markdown="./md/chapter4.md"
+          data-separator="^\n\n\n"
+          data-separator-vertical="^\n\n"
+          data-separator-notes="^Note:"
+        ></section> -->
+
+        <section data-markdown>
+          <textarea data-template>
+            <!-- .slide: data-background-color="#212121" -->
+            # 谢谢
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/reveal.js@4.2.1/dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.2.1/plugin/notes/notes.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.2.1/plugin/markdown/markdown.js"></script>
+    <script src="https://unpkg.com/reveal.js@4.2.1/plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+
+        // Parallax background image
+        parallaxBackgroundImage: "https://b.yzcdn.cn/public_files/a3579f5e79ea33bbf174058f30f5d949.jpg", // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+
+        // Parallax background size
+        parallaxBackgroundSize: "2100px 900px", // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+        // Number of pixels to move the parallax background per slide
+        // - Calculated automatically unless specified
+        // - Set to 0 to disable movement along an axis
+        parallaxBackgroundHorizontal: 80,
+        parallaxBackgroundVertical: 20,
+      });
+    </script>
+  </body>
+</html>
