@@ -32,8 +32,8 @@
       <div class="slides">
         <section data-background-color="#212121">
           <h1>Flutter实战 第三章</h1>
-          <p>分享：木木</p>
-          <p>2021.12.23</p>
+          <p>分享: 木木</p>
+          <p>2021.12.28</p>
         </section>
 
         <!-- 基础组件 -->
@@ -43,6 +43,30 @@
           data-separator-vertical="^\n\n"
           data-separator-notes="^Note:"
         ></section>
+
+        <section>
+          <h3>自定义进度指示器样式</h3>
+          <p class="fragment" data-fragment-index="1">
+            可以通过 CustomPainter Widget 来自定义绘制逻辑
+          </p>
+          <div class="r-stack">
+            <img
+              class="fragment current-visible"
+              data-fragment-index="2"
+              src="https://b.yzcdn.cn/public_files/4fa139dff11027967442a6358f52c7a3.png"
+              alt="CustomPainter"
+            />
+            <a
+              class="fragment"
+              href="https://pub.flutter-io.cn/packages/flutter_spinkit"
+              target="_blank"
+              >flutter_spinkit</a
+            >
+          </div>
+          <aside class="notes">
+            LinearProgressIndicator 和 CircularProgressIndicator 也是通过 CustomPainter 来实现外观绘制的
+          </aside>
+        </section>
 
         <!-- 布局类组件 -->
         <!-- <section
@@ -76,7 +100,8 @@
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 
         // Parallax background image
-        parallaxBackgroundImage: "https://b.yzcdn.cn/public_files/a3579f5e79ea33bbf174058f30f5d949.jpg", // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+        parallaxBackgroundImage:
+          "https://b.yzcdn.cn/public_files/a3579f5e79ea33bbf174058f30f5d949.jpg", // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
 
         // Parallax background size
         parallaxBackgroundSize: "2100px 900px", // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
@@ -85,7 +110,7 @@
         // - Calculated automatically unless specified
         // - Set to 0 to disable movement along an axis
         parallaxBackgroundHorizontal: 80,
-        parallaxBackgroundVertical: 20,
+        parallaxBackgroundVertical: 7,
       });
     </script>
   </body>
