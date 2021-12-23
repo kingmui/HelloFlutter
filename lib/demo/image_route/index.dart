@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/constants/iconstore.dart';
+import 'package:hello_flutter/widgets/icon_store/index.dart';
 
 /// Flutter 中，我们可以通过 Image 组件来加载并显示图片，Image 的数据源可以是 asset、文件、内存以及网络
 /// ImageProvider
@@ -153,11 +155,11 @@ class ImageRoute extends StatelessWidget {
                   ],
                 );
               }).toList(),
-              const Text(
-                'Icon',
-                style: TextStyle(
-                  fontSize: 20,
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 18,
                 ),
+                child: Text('Icon'),
               ),
               const Text(
                 '\uE03e \uE237 \uE287',
@@ -171,10 +173,53 @@ class ImageRoute extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const <Widget>[
                   // Icons 类中包含了所有 Material Design 图标的 IconData 静态变量定义
-                  Icon(Icons.accessible, color: Colors.green),
-                  Icon(Icons.error, color: Colors.green),
-                  Icon(Icons.fingerprint, color: Colors.green),
+                  Icon(
+                    Icons.accessible,
+                    color: Colors.green,
+                  ),
+                  Icon(
+                    Icons.error,
+                    color: Colors.green,
+                  ),
+                  Icon(
+                    Icons.fingerprint,
+                    color: Colors.green,
+                  ),
                 ],
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 18,
+                ),
+                child: Text('IconStore'),
+              ),
+              IconStore(
+                codePoint: IconStores.github,
+                size: 50,
+              ),
+              IconStore(
+                codePoint: IconStores.weChat,
+                size: 50,
+                color: Colors.green,
+              ),
+              IconStore(
+                codePoint: IconStores.tesla,
+                size: 50,
+                color: Colors.red,
+              ),
+              IconStore(
+                codePoint: IconStores.yahoo,
+                size: 50,
+                color: Colors.purple,
+              ),
+              IconStore(
+                codePoint: IconStores.apple,
+                size: 50,
+              ),
+              IconStore(
+                codePoint: IconStores.line,
+                size: 50,
+                color: Colors.green,
               ),
             ],
           ),
