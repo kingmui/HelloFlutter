@@ -23,6 +23,7 @@ class ButtonRoute extends StatelessWidget {
             // 按下后，阴影会变大
             ElevatedButton(
               child: const Text('ElevatedButton'),
+              // 设置点击回调，当按钮按下时会执行该回调
               onPressed: () {},
             ),
             // 文本按钮，默认背景透明并不带阴影

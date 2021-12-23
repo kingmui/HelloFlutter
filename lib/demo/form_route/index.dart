@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/constants/index.dart';
 
 /// Form 继承自 StatefulWidget 对象，它对应的状态类为 FormState
 ///
@@ -26,6 +27,7 @@ class FormRoute extends StatefulWidget {
 
 class _FormRouteState extends State<FormRoute> {
   final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey _formKey = GlobalKey<FormState>();
 
@@ -34,6 +36,7 @@ class _FormRouteState extends State<FormRoute> {
     super.dispose();
 
     _usernameController.dispose();
+    _phoneController.dispose();
     _passwordController.dispose();
   }
 
@@ -77,6 +80,21 @@ class _FormRouteState extends State<FormRoute> {
                 },
               ),
               TextFormField(
+                autofocus: true,
+                controller: _phoneController,
+                decoration: const InputDecoration(
+                  labelText: '手机号',
+                  hintText: '中国大陆手机号',
+                  icon: Icon(Icons.phone),
+                ),
+                // 校验手机号
+                validator: (v) {
+                  return chineseMobileRegExp.hasMatch(v ?? '')
+                      ? null
+                      : '请输入中国大陆手机号';
+                },
+              ),
+              TextFormField(
                 controller: _passwordController,
                 decoration: const InputDecoration(
                   labelText: '密码',
@@ -100,12 +118,13 @@ class _FormRouteState extends State<FormRoute> {
                           padding: EdgeInsets.all(16.0),
                           child: Text('登录 GlobalKey'),
                         ),
+                        // 此处不能通过 Form.of(context) 来获取
+                        // 原因是，此处的 context 为 FormRoute 的 context
+                        // 而 Form.of(context) 是根据所指定 context 向根去查找，而 FormState 是在 FormRoute 的子树中，所以不行
                         onPressed: () {
-                          // 通过 _formKey.currentState 获取 FormState 后，
-                          // 调用 validate() 方法校验用户名密码是否合法，校验
-                          // 通过后再提交数据。
+                          // 通过 _formKey.currentState 获取 FormState 后
+                          // 调用 validate() 方法校验用户名密码是否合法，校验通过后再提交数据
                           if ((_formKey.currentState as FormState).validate()) {
-                            // 验证通过提交数据
                             if (kDebugMode) {
                               print(
                                   '------------------------------------------>:验证通过提交数据 GlobalKey');
@@ -117,13 +136,16 @@ class _FormRouteState extends State<FormRoute> {
                   ],
                 ),
               ),
+              // 通过 Builder 来构建登录按钮，Builder 会将 widget 节点的 context 作为回调参数
               Builder(
+                // 通过 Builder 来获取 ElevatedButton 所在 widget 树的真正 context(Element)
+                // 其实 context 正是操作 Widget 所对应的 Element 的一个接口
+                // 由于 Widget 树对应的 Element 都是不同的，所以 context 也都是不同的
                 builder: (context) {
                   return ElevatedButton(
                     onPressed: () {
                       // 由于本 widget 也是 Form 的子代 widget，所以可以通过下面方式获取 FormState
                       if (Form.of(context)!.validate()) {
-                        //验证通过提交数据
                         if (kDebugMode) {
                           print(
                               '------------------------------------------>:验证通过提交数据 Form.of(context)');

@@ -127,10 +127,16 @@ class _FocusRouteState extends State<FocusRoute> {
                   ),
                 ),
               ),
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 18,
+                ),
+                child: Text('复写主题色'),
+              ),
               Theme(
                 data: Theme.of(context).copyWith(
                   // 定义下划线颜色
-                  hintColor: Colors.grey[200],
+                  hintColor: Colors.purple,
                   inputDecorationTheme: const InputDecorationTheme(
                     // 定义 label 字体样式
                     labelStyle: TextStyle(
@@ -139,7 +145,7 @@ class _FocusRouteState extends State<FocusRoute> {
                     // decoration 中可以设置 hintStyle，它可以覆盖 hintColor
                     // 定义提示文本样式
                     hintStyle: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.grey,
                       fontSize: 14.0,
                     ),
                   ),
@@ -168,7 +174,13 @@ class _FocusRouteState extends State<FocusRoute> {
                   ],
                 ),
               ),
-              // 自定义下划线宽度
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 18,
+                ),
+                child: Text('自定义下划线宽度'),
+              ),
+              // 无法直接定义下划线宽度。可以通过隐藏掉 TextField 本身的下划线，然后通过 Container 去嵌套定义样式
               Container(
                 decoration: const BoxDecoration(
                   border: Border(

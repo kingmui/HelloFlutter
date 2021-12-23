@@ -2,9 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// Text 用于显示简单样式文本，它包含一些控制文本显示样式的一些属性
+/// Text 用于显示简单的样式文本，它包含一些控制文本显示样式的属性
 /// TextStyle 用于指定文本显示的样式。如颜色、字体、粗细、背景等
-/// Text 的所有文本内容只能指定同一种样式，如果需要对一个 Text 内容的不同部分按照不同的样式显示，这时就可以使用 TextSpan，它代表文本的一个「片段」
+///
+/// Text 的所有文本内容只能指定同一种样式
+/// 如果需要对一个 Text 内容的不同部分按照不同的样式显示，这时就可以使用 TextSpan，它代表文本的一个「片段」
 
 class TextRoute extends StatefulWidget {
   const TextRoute({Key? key}) : super(key: key);
@@ -48,18 +50,23 @@ class _TextRouteState extends State<TextRoute> {
           children: [
             const Text(
               '左对齐',
-              // 对齐的参考系是Text widget 本身
+              // 文本在水平方向的对齐方式
+              // 对齐的参考系是 Text widget 本身
               textAlign: TextAlign.left,
+              // 当 Text 的宽度和文本内容长度相等时，指定以下对齐方式是没有意义的
+              // textAlign: TextAlign.center,
             ),
             Text(
               '文本居中对齐' * 4,
+              // 只有 Text 宽度大于文本内容长度时指定此属性才有意义
               textAlign: TextAlign.center,
             ),
             Text(
-              '最多显示一行，超出部分省略。' * 2,
+              '最多显示一行，超出部分省略。' * 4,
               // 指定文本显示的最大行数，默认情况下，文本是自动折行的
+              // 如果指定此参数，则文本最多不会超过指定的行
               maxLines: 1,
-              // 如果有多余的文本，可以通过 overflow 来指定截断方式
+              // 如果有多余的文本，可以通过 overflow 来指定截断方式。默认是直接截断
               overflow: TextOverflow.ellipsis,
             ),
             const Text(
@@ -78,7 +85,7 @@ class _TextRouteState extends State<TextRoute> {
                 fontSize: 18.0,
                 // 该属性用于指定行高，但它并不是一个绝对值，而是一个因子
                 // 具体的行高等于 fontSize * height
-                height: 1.2,
+                height: 1.25,
                 // 由于不同平台默认支持的字体集不同
                 // 所以在手动指定字体时一定要先在不同平台测试一下
                 fontFamily: 'Courier',
@@ -89,11 +96,15 @@ class _TextRouteState extends State<TextRoute> {
             ),
             Text.rich(
               TextSpan(
-                children: [
+                // TextSpan 数组，可以包括其他 TextSpan
+                children: <TextSpan>[
                   const TextSpan(text: 'Flutter: '),
                   TextSpan(
+                    // 文本片段内容
                     text: 'https://flutter.dev/',
+                    // 文本片段样式
                     style: const TextStyle(color: Colors.blue),
+                    // 用于对该文本片段上的手势进行识别处理
                     recognizer: _tapRecognizer,
                   ),
                 ],
@@ -101,7 +112,7 @@ class _TextRouteState extends State<TextRoute> {
             ),
             RichText(
               text: TextSpan(
-                children: [
+                children: <TextSpan>[
                   const TextSpan(text: 'Flutter: '),
                   TextSpan(
                     text: 'https://flutter.dev/',

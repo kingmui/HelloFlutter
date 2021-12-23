@@ -76,7 +76,7 @@ class _TextFieldRouteState extends State<TextFieldRoute> {
               // 如果没有提供 controller，那么 TextField 内部会自动创建一个
               controller: _userNameController,
               // 是否自动获取焦点
-              autofocus: true,
+              // autofocus: true,
               // 用于控制 TextField 的外观显示，如提示文本、背景颜色、边框等
               decoration: const InputDecoration(
                 labelText: '用户名',
@@ -93,7 +93,7 @@ class _TextFieldRouteState extends State<TextFieldRoute> {
               ),
               // 输入框内编辑文本在水平方向的对齐方式
               textAlign: TextAlign.end,
-              // 输入框的最大行数，默认为 1。如果为 null，则无行数限制。
+              // 输入框的最大行数，默认为 1。如果为 null，则无行数限制
               maxLines: 1,
               // 输入框文本的最大长度，设置后输入框右下角会显示输入的文本计数
               maxLength: 10,
@@ -155,6 +155,7 @@ class _TextFieldRouteState extends State<TextFieldRoute> {
             // Text('用户名: ${_userNameController.text}'),
             // Text('密码: ${_userPasswordController.text}'),
             TextField(
+              autofocus: true,
               controller: _selectionController,
             ),
           ],
